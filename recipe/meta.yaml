@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ansys_api_mechanical-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ansys_api_mechanical-{{ version }}.tar.gz
   sha256: 7bb4fbf268170120d46e610b1ec1eea04a27fee8847d66c2055522b1c5b4c5d5
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools >=42.0.0
     - wheel
     - ansys_tools_protoc_helper >=0.4.0
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - grpcio >=1.30,<2.dev0
     - protobuf <6,>=3.19
 
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ansys/ansys-api-mechanical
