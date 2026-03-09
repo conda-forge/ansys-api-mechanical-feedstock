@@ -1,5 +1,5 @@
 {% set name = "ansys-api-mechanical" %}
-{% set version = "0.1.3" %}
+{% set version = "0.1.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ansys_api_mechanical-{{ version }}.tar.gz
-  sha256: 5d32f05be3b71184163f211c1cb1760417aaa353bc40e2166ec99d118cbdfb02
+  sha256: cdad381463f65d30aa9e1a550777de9905e155124532a7f7d6d8930094277710
 
 build:
   noarch: python
